@@ -1,9 +1,17 @@
-.container {
+[class*="container"] {
     height: 300px;
     width: 600px;
     border: 1px solid #333;
     margin: 20px;
     display: grid;
+}
+
+
+
+/* Grids with specific positioning */
+
+.container1 {
+    
 
     grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
     grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
@@ -43,4 +51,48 @@
 
 .item-c {
     background-color: orange;
+}
+
+
+/* Grids without specific positioning */
+
+.container2 {
+    grid-template-columns: repeat(3, 100px); /* annat sätt att skriva 1fr 1fr 1fr */
+    grid-template-rows: auto;    /* default value for rows. Skapar antalet rows efeter behov */
+    
+    /* column-gap: 10px;
+    row-gap: 15px; */
+    
+    /* Short-hand*/
+    gap: 15px 10px; /* <grid-row-gap> <grid-column-gap>*/
+    
+    padding: 10px;
+
+    align-items: stretch; /* Hur hörjden på boxarna ska bete sig, positionera sig, 
+    start  / end / center / strech (default) */
+    justify-items: center; /* Hur bredden på boxarna ska bete sig, positionera sig 
+    start  / end / center / strech (default) */
+    /* Short-hand*/
+    place-items: stretch stretch; /* <align-items> <justify-items> */
+    
+    /* Needs free available space tp move around */
+    /* positions column-wise */
+    justify-content: center; /* start  / end / center / strech (default) / space-around / space-between / space-evenly */
+    
+    /* positions row-wise */
+    align-content: stretch; /* start  / end / center / strech (default) / space-around / space-between / space-evenly */
+    
+    place-content: stretch center; /* <align-content> <justify-content> start  / end / center / strech (default) / space-around / space-between / space-evenly */
+}
+
+[class*="box"] {
+    border: 1px solid #333;
+}
+
+.box5 {
+   align-self: center; /* start  / end / center / strech (default) */
+   justify-self: center; /* start  / end / center / strech (default) */
+   
+   /* Short-hand */
+   place-self: end; /* <align-content> <justify-content>  /* start  / end / center / strech (default) */
 }
