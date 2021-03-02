@@ -96,3 +96,54 @@
    /* Short-hand */
    place-self: end; /* <align-content> <justify-content>  /* start  / end / center / strech (default) */
 }
+
+/* Grid areas */
+
+
+.container3 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto; /* Aute = default value */
+    /*
+    
+    To be aware of when working with Grid areas:
+    1. All chidren need to be given a grid-area name,
+    2. All chidren need to be positioned in grid-template-areas,
+    3. The elemnts must be square or rectangle (tex no L shape), 
+    meaning must have 4 corners or else the layout will collapse.
+    4. Elements/Sections need to be one pice, must remain a 
+    single section in the layout. Empty space marked with "." in grid-template-ares,
+    5. All rows must have same number of cells
+    
+    */
+
+    grid-template-areas: 
+      "header header header sidebar"    /* rad 1 och vilket innehål de 4 colimns ska ha */
+      "main main main sidebar"          /* rad 2 och vilet innehåll de 4 columsn ska ha */
+      "footer footer footer sidebar";          /* rad 3 och vilet innehåll de 4 columsn ska ha */
+
+/* when assigning only 1 value (instead of 2), the value 
+applies for both column and row gap */
+      gap: 10px; 
+}
+
+header {
+    background-color: tomato;
+    grid-area: header;
+}
+
+main {
+    background-color: wheat;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+aside {
+    background-color: lightcyan;
+    grid-area: sidebar;
+}
+
+footer {
+    background-color: lightskyblue;
+    grid-area: footer;
+}
